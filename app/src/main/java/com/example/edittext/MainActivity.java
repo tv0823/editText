@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_eT1,btn_eT2,btn_eT3;
     ImageView iV1,iV2,iV3;
     Random rnd = new Random();
-    int temp,rnd1,rnd2;
+    int rnd1,rnd2,rnd3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,16 +41,26 @@ public class MainActivity extends AppCompatActivity {
         iV3 = findViewById(R.id.iV3);
 
         rnd1 = rnd.nextInt(89)+10;
-        num1.setText(rnd1);
+        num1.setText(""+rnd1);
         rnd2 = rnd.nextInt(89)+10;
-        num2.setText(rnd2);
+        num2.setText(""+rnd2);
+        rnd3 = rnd.nextInt(89)+10;
+
     }
 
     public void pressed1(View view) {
-        String st = eT1.getText().toString();
-        temp = Integer.parseInt(st);
-        if(temp == rnd1 + rnd2)
-            iV1.setImageResource();
+        String ans = eT1.getText().toString();
+        int ans1 = Integer.parseInt(ans);
+        if(rnd1 + rnd2 == ans1)
+            iV1.setImageResource(R.drawable.goodmark);
+        else
+            iV1.setImageResource(R.drawable.badmark);
+        num3.setText(rnd1 + rnd2);
+        num4.setText(rnd3);
+    }
+
+    public void pressed2(View view) {
+
 
     }
 }
