@@ -16,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn_eT1,btn_eT2,btn_eT3;
     ImageView iV1,iV2,iV3;
     Random rnd = new Random();
-    int rnd1,rnd2,rnd3;
+    int rnd1,rnd2,rnd3,rnd4;
+    String ans;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,26 +42,45 @@ public class MainActivity extends AppCompatActivity {
         iV3 = findViewById(R.id.iV3);
 
         rnd1 = rnd.nextInt(89)+10;
-        num1.setText(""+rnd1);
         rnd2 = rnd.nextInt(89)+10;
-        num2.setText(""+rnd2);
         rnd3 = rnd.nextInt(89)+10;
+        rnd4 = rnd.nextInt(89)+10;
+        num1.setText(""+rnd1);
+        num2.setText(""+rnd2);
 
     }
 
     public void pressed1(View view) {
-        String ans = eT1.getText().toString();
+        btn_eT1.setClickable(false);
+        ans = eT1.getText().toString();
         int ans1 = Integer.parseInt(ans);
         if(rnd1 + rnd2 == ans1)
             iV1.setImageResource(R.drawable.goodmark);
         else
             iV1.setImageResource(R.drawable.badmark);
-        num3.setText(rnd1 + rnd2);
-        num4.setText(rnd3);
+        num3.setText(""+(rnd1 + rnd2));
+        num4.setText(""+rnd3);
     }
 
     public void pressed2(View view) {
+        btn_eT2.setClickable(false);
+        ans = eT2.getText().toString();
+        int ans2 = Integer.parseInt(ans);
+        if(rnd1 + rnd2 + rnd3 == ans2)
+            iV2.setImageResource(R.drawable.goodmark);
+        else
+            iV2.setImageResource(R.drawable.badmark);
+        num5.setText(""+(rnd1 + rnd2 + rnd3));
+        num6.setText(""+rnd4);
+    }
 
-
+    public void pressed3(View view) {
+        btn_eT3.setClickable(false);
+        String ans = eT3.getText().toString();
+        int ans3 = Integer.parseInt(ans);
+        if(rnd1 + rnd2 + rnd3 + rnd4 == ans3)
+            iV3.setImageResource(R.drawable.goodmark);
+        else
+            iV3.setImageResource(R.drawable.badmark);
     }
 }
