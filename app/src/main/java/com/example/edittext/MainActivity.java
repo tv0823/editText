@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,8 +16,9 @@ public class MainActivity extends AppCompatActivity {
     EditText eT1,eT2,eT3;
     Button btn_eT1,btn_eT2,btn_eT3;
     ImageView iV1,iV2,iV3;
+    ImageButton scoreAndReset;
     Random rnd = new Random();
-    int rnd1,rnd2,rnd3,rnd4;
+    int rnd1,rnd2,rnd3,rnd4,correctAns = 0;
     boolean click_eT1 = false, click_eT2 = false, click_eT3 = false;
     String ans;
     @Override
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         iV1 = findViewById(R.id.iV1);
         iV2 = findViewById(R.id.iV2);
         iV3 = findViewById(R.id.iV3);
+
+        scoreAndReset = findViewById(R.id.scoreAndReset);
 
         rnd1 = rnd.nextInt(89)+10;
         rnd2 = rnd.nextInt(89)+10;
@@ -68,8 +72,11 @@ public class MainActivity extends AppCompatActivity {
             btn_eT1.setClickable(false);
             ans = eT1.getText().toString();
             int ans1 = Integer.parseInt(ans);
-            if(rnd1 + rnd2 == ans1)
+            iV1.setVisibility(view.VISIBLE);
+            if(rnd1 + rnd2 == ans1) {
                 iV1.setImageResource(R.drawable.goodmark);
+                correctAns++;
+            }
             else
                 iV1.setImageResource(R.drawable.badmark);
             tV3.setText(""+(rnd1 + rnd2));
@@ -78,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
             tV3.setVisibility(View.VISIBLE);
             tV4.setVisibility(View.VISIBLE);
             eT2.setVisibility(View.VISIBLE);
-            iV2.setVisibility(view.VISIBLE);
             btn_eT2.setVisibility(view.VISIBLE);
 
         }
@@ -89,8 +95,11 @@ public class MainActivity extends AppCompatActivity {
             btn_eT2.setClickable(false);
             ans = eT2.getText().toString();
             int ans2 = Integer.parseInt(ans);
-            if(rnd1 + rnd2 + rnd3 == ans2)
+            iV2.setVisibility(view.VISIBLE);
+            if(rnd1 + rnd2 + rnd3 == ans2){
                 iV2.setImageResource(R.drawable.goodmark);
+                correctAns ++;
+            }
             else
                 iV2.setImageResource(R.drawable.badmark);
             tV5.setText(""+(rnd1 + rnd2 + rnd3));
@@ -99,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
             tV5.setVisibility(View.VISIBLE);
             tV6.setVisibility(View.VISIBLE);
             eT3.setVisibility(View.VISIBLE);
-            iV3.setVisibility(view.VISIBLE);
             btn_eT3.setVisibility(view.VISIBLE);
         }
     }
@@ -109,11 +117,60 @@ public class MainActivity extends AppCompatActivity {
             btn_eT3.setClickable(false);
             String ans = eT3.getText().toString();
             int ans3 = Integer.parseInt(ans);
-            if(rnd1 + rnd2 + rnd3 + rnd4 == ans3)
+            iV3.setVisibility(view.VISIBLE);
+            if(rnd1 + rnd2 + rnd3 + rnd4 == ans3) {
                 iV3.setImageResource(R.drawable.goodmark);
+                correctAns ++;
+            }
             else
                 iV3.setImageResource(R.drawable.badmark);
+
+            scoreAndReset.setVisibility(view.VISIBLE);
+            if (correctAns == 3)
+                scoreAndReset.setImageResource(R.drawable.hundred);
+            else if (correctAns == 2)
+                scoreAndReset.setImageResource(R.drawable.sixty_six);
+            else if (correctAns == 1)
+                scoreAndReset.setImageResource(R.drawable.thirty_three);
+            else
+                scoreAndReset.setImageResource(R.drawable.zero);
         }
     }
 
+    public void resetAction(View view) {
+        scoreAndReset.setVisibility(view.INVISIBLE);
+        correctAns = 0;
+        eT1.setText("");
+        eT2.setText("");
+        eT3.setText("");
+        click_eT1 = false;
+        click_eT2 = false;
+        click_eT3 = false;
+
+        rnd1 = rnd.nextInt(89)+10;
+        rnd2 = rnd.nextInt(89)+10;
+        rnd3 = rnd.nextInt(89)+10;
+        rnd4 = rnd.nextInt(89)+10;
+        tV1.setText(""+rnd1);
+        tV2.setText(""+rnd2);
+        iV1.setVisibility(view.INVISIBLE);
+        btn_eT1.setClickable(true);
+
+        tV3.setVisibility(View.INVISIBLE);
+        tV4.setVisibility(View.INVISIBLE);
+        eT2.setVisibility(View.INVISIBLE);
+        iV2.setVisibility(view.INVISIBLE);
+        btn_eT2.setVisibility(view.INVISIBLE);
+        btn_eT2.setClickable(true);
+
+        tV5.setVisibility(View.INVISIBLE);
+        tV6.setVisibility(View.INVISIBLE);
+        eT3.setVisibility(View.INVISIBLE);
+        iV3.setVisibility(view.INVISIBLE);
+        btn_eT3.setVisibility(view.INVISIBLE);
+        btn_eT3.setClickable(true);
+
+
+
+    }
 }
