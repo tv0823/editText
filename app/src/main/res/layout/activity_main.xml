@@ -7,66 +7,64 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/num5"
+        android:id="@+id/tV5"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="24dp"
-        android:text="TextView"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/num1"
+        android:id="@+id/tV1"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="68dp"
-        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/num4"
+        android:id="@+id/tV4"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/num6"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/tV6"
         app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toEndOf="@+id/num2"
-        app:layout_constraintTop_toBottomOf="@+id/num3" />
+        app:layout_constraintStart_toEndOf="@+id/tV2"
+        app:layout_constraintTop_toBottomOf="@+id/tV3" />
 
     <TextView
-        android:id="@+id/num3"
+        android:id="@+id/tV3"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginTop="68dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/num5"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/tV5"
         app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toEndOf="@+id/num1"
+        app:layout_constraintStart_toEndOf="@+id/tV1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/num6"
+        android:id="@+id/tV6"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:text="TextView"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/num5" />
+        app:layout_constraintTop_toBottomOf="@+id/tV5" />
 
     <TextView
-        android:id="@+id/num2"
+        android:id="@+id/tV2"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/num1" />
+        app:layout_constraintTop_toBottomOf="@+id/tV1" />
 
     <EditText
         android:id="@+id/eT1"
@@ -77,8 +75,9 @@
         android:ems="10"
         android:hint="answer"
         android:inputType="number"
+        android:onClick="pressed_eT1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/num2" />
+        app:layout_constraintTop_toBottomOf="@+id/tV2" />
 
     <EditText
         android:id="@+id/eT2"
@@ -88,9 +87,11 @@
         android:ems="10"
         android:hint="answer"
         android:inputType="number"
+        android:onClick="pressed_eT2"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/eT3"
         app:layout_constraintStart_toEndOf="@+id/eT1"
-        app:layout_constraintTop_toBottomOf="@+id/num4" />
+        app:layout_constraintTop_toBottomOf="@+id/tV4" />
 
     <EditText
         android:id="@+id/eT3"
@@ -101,8 +102,10 @@
         android:ems="10"
         android:hint="answer"
         android:inputType="number"
+        android:onClick="pressed_eT3"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/num6" />
+        app:layout_constraintTop_toBottomOf="@+id/tV6" />
 
     <ImageView
         android:id="@+id/iV1"
@@ -119,6 +122,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="30dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/iV3"
         app:layout_constraintStart_toEndOf="@+id/iV1"
         app:layout_constraintTop_toBottomOf="@+id/eT2"
@@ -130,6 +134,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="24dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eT3"
         tools:srcCompat="@tools:sample/avatars" />
@@ -152,6 +157,7 @@
         android:layout_marginTop="30dp"
         android:onClick="pressed2"
         android:text="Button"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/btn_eT3"
         app:layout_constraintStart_toEndOf="@+id/btn_eT1"
         app:layout_constraintTop_toBottomOf="@+id/iV2" />
@@ -164,6 +170,7 @@
         android:layout_marginEnd="24dp"
         android:onClick="pressed3"
         android:text="Button"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iV3" />
 

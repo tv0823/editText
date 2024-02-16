@@ -11,23 +11,24 @@ import android.widget.TextView;
 
 import java.util.Random;
 public class MainActivity extends AppCompatActivity {
-    TextView num1,num2,num3,num4,num5,num6;
+    TextView tV1,tV2,tV3,tV4,tV5,tV6;
     EditText eT1,eT2,eT3;
     Button btn_eT1,btn_eT2,btn_eT3;
     ImageView iV1,iV2,iV3;
     Random rnd = new Random();
     int rnd1,rnd2,rnd3,rnd4;
+    boolean click_eT1 = false, click_eT2 = false, click_eT3 = false;
     String ans;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        num1 = findViewById(R.id.num1);
-        num2 = findViewById(R.id.num2);
-        num3 = findViewById(R.id.num3);
-        num4 = findViewById(R.id.num4);
-        num5 = findViewById(R.id.num5);
-        num6 = findViewById(R.id.num6);
+        tV1 = findViewById(R.id.tV1);
+        tV2 = findViewById(R.id.tV2);
+        tV3 = findViewById(R.id.tV3);
+        tV4 = findViewById(R.id.tV4);
+        tV5 = findViewById(R.id.tV5);
+        tV6 = findViewById(R.id.tV6);
 
         eT1 = findViewById(R.id.eT1);
         eT2 = findViewById(R.id.eT2);
@@ -45,42 +46,74 @@ public class MainActivity extends AppCompatActivity {
         rnd2 = rnd.nextInt(89)+10;
         rnd3 = rnd.nextInt(89)+10;
         rnd4 = rnd.nextInt(89)+10;
-        num1.setText(""+rnd1);
-        num2.setText(""+rnd2);
+        tV1.setText(""+rnd1);
+        tV2.setText(""+rnd2);
 
+    }
+
+    public void pressed_eT1(View view) {
+        click_eT1 = true;
+    }
+
+    public void pressed_eT2(View view) {
+        click_eT2 = true;
+    }
+
+    public void pressed_eT3(View view) {
+        click_eT3 = true;
     }
 
     public void pressed1(View view) {
-        btn_eT1.setClickable(false);
-        ans = eT1.getText().toString();
-        int ans1 = Integer.parseInt(ans);
-        if(rnd1 + rnd2 == ans1)
-            iV1.setImageResource(R.drawable.goodmark);
-        else
-            iV1.setImageResource(R.drawable.badmark);
-        num3.setText(""+(rnd1 + rnd2));
-        num4.setText(""+rnd3);
+        if(click_eT1 == true){
+            btn_eT1.setClickable(false);
+            ans = eT1.getText().toString();
+            int ans1 = Integer.parseInt(ans);
+            if(rnd1 + rnd2 == ans1)
+                iV1.setImageResource(R.drawable.goodmark);
+            else
+                iV1.setImageResource(R.drawable.badmark);
+            tV3.setText(""+(rnd1 + rnd2));
+            tV4.setText(""+rnd3);
+
+            tV3.setVisibility(View.VISIBLE);
+            tV4.setVisibility(View.VISIBLE);
+            eT2.setVisibility(View.VISIBLE);
+            iV2.setVisibility(view.VISIBLE);
+            btn_eT2.setVisibility(view.VISIBLE);
+
+        }
     }
 
     public void pressed2(View view) {
-        btn_eT2.setClickable(false);
-        ans = eT2.getText().toString();
-        int ans2 = Integer.parseInt(ans);
-        if(rnd1 + rnd2 + rnd3 == ans2)
-            iV2.setImageResource(R.drawable.goodmark);
-        else
-            iV2.setImageResource(R.drawable.badmark);
-        num5.setText(""+(rnd1 + rnd2 + rnd3));
-        num6.setText(""+rnd4);
+        if(click_eT2 == true){
+            btn_eT2.setClickable(false);
+            ans = eT2.getText().toString();
+            int ans2 = Integer.parseInt(ans);
+            if(rnd1 + rnd2 + rnd3 == ans2)
+                iV2.setImageResource(R.drawable.goodmark);
+            else
+                iV2.setImageResource(R.drawable.badmark);
+            tV5.setText(""+(rnd1 + rnd2 + rnd3));
+            tV6.setText(""+rnd4);
+
+            tV5.setVisibility(View.VISIBLE);
+            tV6.setVisibility(View.VISIBLE);
+            eT3.setVisibility(View.VISIBLE);
+            iV3.setVisibility(view.VISIBLE);
+            btn_eT3.setVisibility(view.VISIBLE);
+        }
     }
 
     public void pressed3(View view) {
-        btn_eT3.setClickable(false);
-        String ans = eT3.getText().toString();
-        int ans3 = Integer.parseInt(ans);
-        if(rnd1 + rnd2 + rnd3 + rnd4 == ans3)
-            iV3.setImageResource(R.drawable.goodmark);
-        else
-            iV3.setImageResource(R.drawable.badmark);
+        if(click_eT3 == true){
+            btn_eT3.setClickable(false);
+            String ans = eT3.getText().toString();
+            int ans3 = Integer.parseInt(ans);
+            if(rnd1 + rnd2 + rnd3 + rnd4 == ans3)
+                iV3.setImageResource(R.drawable.goodmark);
+            else
+                iV3.setImageResource(R.drawable.badmark);
+        }
     }
+
 }
