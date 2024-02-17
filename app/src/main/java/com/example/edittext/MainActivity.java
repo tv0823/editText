@@ -46,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         scoreAndReset = findViewById(R.id.scoreAndReset);
 
-        rnd1 = rnd.nextInt(89)+10;
-        rnd2 = rnd.nextInt(89)+10;
-        rnd3 = rnd.nextInt(89)+10;
-        rnd4 = rnd.nextInt(89)+10;
+        rnd1 = rnd.nextInt(90)+10;
+        rnd2 = rnd.nextInt(90)+10;
+        rnd3 = rnd.nextInt(90)+10;
+        rnd4 = rnd.nextInt(90)+10;
         tV1.setText(""+rnd1);
         tV2.setText(""+rnd2);
 
@@ -147,10 +147,10 @@ public class MainActivity extends AppCompatActivity {
         click_eT2 = false;
         click_eT3 = false;
 
-        rnd1 = rnd.nextInt(89)+10;
-        rnd2 = rnd.nextInt(89)+10;
-        rnd3 = rnd.nextInt(89)+10;
-        rnd4 = rnd.nextInt(89)+10;
+        rnd1 = rnd.nextInt(90)+10;
+        rnd2 = rnd.nextInt(90)+10;
+        rnd3 = rnd.nextInt(90)+10;
+        rnd4 = rnd.nextInt(90)+10;
         tV1.setText(""+rnd1);
         tV2.setText(""+rnd2);
         iV1.setVisibility(view.INVISIBLE);
