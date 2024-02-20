@@ -75,7 +75,6 @@
         android:ems="10"
         android:hint="answer"
         android:inputType="number"
-        android:onClick="pressed_eT1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tV2" />
 
@@ -87,7 +86,6 @@
         android:ems="10"
         android:hint="answer"
         android:inputType="number"
-        android:onClick="pressed_eT2"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/eT3"
         app:layout_constraintStart_toEndOf="@+id/eT1"
@@ -102,7 +100,6 @@
         android:ems="10"
         android:hint="answer"
         android:inputType="number"
-        android:onClick="pressed_eT3"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tV6" />

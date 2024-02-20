@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     ImageButton scoreAndReset;
     Random rnd = new Random();
     int rnd1,rnd2,rnd3,rnd4,correctAns = 0;
-    boolean click_eT1 = false, click_eT2 = false, click_eT3 = false;
     String ans;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,22 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void pressed_eT1(View view) {
-        click_eT1 = true;
-    }
-
-    public void pressed_eT2(View view) {
-        click_eT2 = true;
-    }
-
-    public void pressed_eT3(View view) {
-        click_eT3 = true;
-    }
 
     public void pressed1(View view) {
-        if(click_eT1 == true){
+        ans = eT1.getText().toString();
+        if(!ans.isEmpty()){
             btn_eT1.setClickable(false);
-            ans = eT1.getText().toString();
             int ans1 = Integer.parseInt(ans);
             iV1.setVisibility(view.VISIBLE);
             if(rnd1 + rnd2 == ans1) {
@@ -91,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pressed2(View view) {
-        if(click_eT2 == true){
+        ans = eT2.getText().toString();
+        if(!ans.isEmpty()){
             btn_eT2.setClickable(false);
-            ans = eT2.getText().toString();
             int ans2 = Integer.parseInt(ans);
             iV2.setVisibility(view.VISIBLE);
             if(rnd1 + rnd2 + rnd3 == ans2){
@@ -113,9 +101,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pressed3(View view) {
-        if(click_eT3 == true){
+        ans = eT3.getText().toString();
+        if(!ans.isEmpty()){
             btn_eT3.setClickable(false);
-            String ans = eT3.getText().toString();
             int ans3 = Integer.parseInt(ans);
             iV3.setVisibility(view.VISIBLE);
             if(rnd1 + rnd2 + rnd3 + rnd4 == ans3) {
@@ -143,9 +131,6 @@ public class MainActivity extends AppCompatActivity {
         eT1.setText("");
         eT2.setText("");
         eT3.setText("");
-        click_eT1 = false;
-        click_eT2 = false;
-        click_eT3 = false;
 
         rnd1 = rnd.nextInt(90)+10;
         rnd2 = rnd.nextInt(90)+10;
